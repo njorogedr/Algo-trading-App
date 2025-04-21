@@ -1,5 +1,5 @@
 # Algo-trading-App
-This project is a geared toward design, implementation to clean development of a successful, efficient Trading app
+This project is a geared toward design, implementation to clean development of a successful, efficient Algorithmic Trading app
 # Core Framework
 databases
 Apis and Libs
@@ -68,7 +68,39 @@ Books such as "Python for Algorithmic Trading" by Yves Hilpisch provide in-depth
 Community and Support
 
 Join forums or Discord servers focused on algorithmic trading to share knowledge and get support from other developers.
+##  Security
+CORS in Node
+Cross-Origin Resource Sharing (CORS) is a security mechanism implemented by web browsers to prevent unauthorized access to resources hosted on different domains. It allows a server to indicate which origins (domains, schemes, or ports) are permitted to access its resources.
 
+In Node.js applications, particularly those using the Express framework, CORS is managed through middleware like the cors package. This middleware simplifies the configuration and management of CORS policies, enabling developers to define custom policies for cross-origin requests.
+
+To use CORS in a Node.js project, developers first install the cors package via npm:
+
+npm install cors
+Then, they can apply the cors middleware to their Express application to enable CORS for all routes:
+
+const express = require('express');
+const cors = require('cors');
+
+const app = express();
+
+// Use the `cors` middleware
+app.use(cors());
+
+// ... Rest of the code
+Developers can also customize CORS behavior by providing options to the cors middleware. For example, to allow only specific origins:
+
+const corsOptions = {
+  origin: 'https://example.com',
+};
+
+app.use(cors(corsOptions));
+Handling credentials, such as cookies or HTTP authentication, requires additional configuration to allow credentials in CORS requests.
+
+Before making actual requests, browsers send pre-flight requests (HTTP OPTIONS requests) to check if the server allows the original request. These pre-flight requests ensure that the server is aware of the incoming request's nature and can respond with the appropriate CORS headers.
+
+Understanding and implementing CORS correctly is crucial for enhancing the security and usability of Node.js applications.
 ## References
-!. https://www.blackbox.ai/chat/zWKRTr4
-2. https://www.marketcalls.in/openalgo/introducing-openalgo-v1-0-the-ultimate-open-source-algorithmic-trading-framework-for-indian-markets.html
+!. https://www.blackbox.ai/chat/zWKRTr4 <br>
+2. https://www.marketcalls.in/openalgo/introducing-openalgo-v1-0-the-ultimate-open-source-algorithmic-trading-framework-for-indian-markets.html <br> 
+3. https://search.brave.com/search?q=what+is+cors+for+node&source=web&summary=1&conversation=7df5fb2fa98a9fd3a66f01
